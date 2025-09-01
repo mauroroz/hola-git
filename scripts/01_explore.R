@@ -3,7 +3,7 @@
 
 # Rutas a los datos (provenientes del repo clonado)
 path_raw  <- here("data", "raw", "penguins_raw.rds")
-path_proc <- here("data", "raw", "penguins.rds")
+path_proc <- here("data", "processed", "penguins.rds")
 
 # Cargar .rds (no requiere paquetes extra)
 penguins_raw  <- read_rds(path_raw)  %>% clean_names()
@@ -24,7 +24,7 @@ g <- ggplot(
   penguins_proc %>% filter(!is.na(bill_length_mm), !is.na(body_mass_g)),
   aes(x = bill_length_mm, y = body_mass_g, color = species)
 ) +
-  geom_point(alpha = 0=.7) +
+  geom_point(alpha = .7) +
   labs(
     title = "Penguins (procesados): masa corporal vs. largo del pico",
     x = "Largo del pico (mm)",
